@@ -3,6 +3,10 @@ import Fuse from 'fuse.js'
 import { commands } from './data/commands'
 import { Search, Filter, Copy, Check, ChevronDown, Sparkles } from 'lucide-react'
 
+// Resolve images from the correct base URL (GitHub Pages subpath-safe)
+const HERO_IMG = new URL('mcraft-sunset.png', import.meta.env.BASE_URL).toString()
+const LOGO_IMG = new URL('logo.png', import.meta.env.BASE_URL).toString()
+
 function useFuse(data) {
   return useMemo(() => new Fuse(data, {
     keys: [
@@ -148,7 +152,7 @@ function App() {
       <header className="sticky top-0 z-10 backdrop-blur bg-white/70 dark:bg-slate-900/70 border-b border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-4 flex items-center gap-3">
           {/* <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-pink-500 to-sky-400 shadow-lg" /> */}
-          <img src="/logo.png" alt="Minecraft Commands Explorer" className="h-30 w-20" />
+          <img src={LOGO_IMG} alt="Minecraft Commands Explorer" className="h-10 w-10 rounded-lg" />
           <div>
             <h1 className="text-xl md:text-2xl font-extrabold tracking-tight text-slate-800 dark:text-slate-100">Minecraft Commands Explorer</h1>
             <p className="text-sm text-slate-500">Find commands fast with fuzzy search and filters</p>
@@ -161,7 +165,7 @@ function App() {
         <section className="card p-0 overflow-hidden">
           <div className="relative">
             <img
-              src="/mcraft-sunset.png"
+              src={HERO_IMG}
               alt="Minecraft landscape hero"
               className="w-full h-48 md:h-64 object-cover"
               loading="eager"
