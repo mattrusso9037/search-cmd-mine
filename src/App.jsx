@@ -3,9 +3,9 @@ import Fuse from 'fuse.js'
 import { commands } from './data/commands'
 import { Search, Filter, Copy, Check, ChevronDown, Sparkles } from 'lucide-react'
 
-// Resolve images from the correct base URL (GitHub Pages subpath-safe)
-const HERO_IMG = new URL('mcraft-sunset.png', import.meta.env.BASE_URL).toString()
-const LOGO_IMG = new URL('logo.png', import.meta.env.BASE_URL).toString()
+// Resolve images relative to Vite's BASE_URL without using URL() (works when BASE_URL is a path)
+const HERO_IMG = `${import.meta.env.BASE_URL}mcraft-sunset.png`
+const LOGO_IMG = `${import.meta.env.BASE_URL}logo.png`
 
 function useFuse(data) {
   return useMemo(() => new Fuse(data, {
