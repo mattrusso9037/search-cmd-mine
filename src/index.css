@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg: 255 255 255;
+    --fg: 24 24 27;
+    --card: 255 255 255;
+    --muted: 99 102 241; /* not used, placeholder */
+  }
+  .dark {
+    --bg: 10 12 16;
+    --fg: 241 245 249;
+    --card: 17 20 26;
+  }
+  html, body, #root {
+    height: 100%;
+  }
+  body {
+    @apply antialiased bg-[rgb(var(--bg))] text-[rgb(var(--fg))];
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl bg-[rgb(var(--card))] shadow-lg border border-white/10;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full px-3 py-1 text-sm font-medium bg-sky-50 text-sky-700 border border-sky-200 hover:bg-sky-100 transition;
+  }
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-semibold text-white bg-pink-500 hover:bg-pink-600 active:translate-y-px transition;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-xl px-3 py-2 bg-white/0 text-sky-700 hover:bg-sky-50 border border-sky-200 transition;
+  }
+  .input {
+    @apply w-full rounded-xl border border-sky-200 bg-white/90 backdrop-blur px-4 py-3 text-lg placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-sky-300/40 focus:border-sky-400;
+  }
+}
